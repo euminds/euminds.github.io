@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jintao Rong - Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jintao Rong - Computer Vision, AIGC, Parameter-Efficient Tuning, Embodied AI">
+  <style>
+    :root {
+      --bg: #f8f9fb;
+      --panel: #ffffff;
+      --primary: #1f4f99;
+      --primary-soft: #f0f4ff;
+      --text: #1a1a1a;
+      --text-light: #6b7280;
+      --border: #e5e7eb;
+      --font-cn: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      --font-en: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-en), var(--font-cn);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 40px auto 60px;
+      padding: 0 18px;
+    }
+
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      font-size: 14px;
+      color: var(--text-light);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+      padding-bottom: 6px;
+    }
+
+    .site-title {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .site-nav a {
+      padding: 2px 0;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .sidebar {
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      border: 1px solid var(--border);
+    }
+
+    .avatar-wrap {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+
+    .name-cn {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    .name-en {
+      font-size: 14px;
+      text-align: center;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    .tagline {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    .sidebar-section {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .sidebar-section-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+      color: #9ca3af;
+    }
+
+    .sidebar-list {
+      list-style: none;
+    }
+
+    .sidebar-list li + li {
+      margin-top: 2px;
+    }
+
+    .chip-list {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+
+    .chip.highlight {
+      background: #1f4f99;
+      color: #ffffff;
+    }
+
+    .content {
+      font-size: 14px;
+    }
+
+    section + section {
+      margin-top: 26px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 16px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #1f4f99, #3b6fd1);
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .timeline {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 4px;
+    }
+
+    .timeline li + li {
+      margin-top: 6px;
+    }
+
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .pub-item + .pub-item {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(209, 213, 219, 0.7);
+    }
+
+    .pub-title {
+      font-weight: 500;
+    }
+
+    .pub-authors {
+      color: var(--text-light);
+    }
+
+    .pub-me {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+
+    .pub-venue {
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .pub-tags {
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #eef1f7;
+      color: var(--text-light);
+    }
+
+    .post-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .post-item + .post-item {
+      margin-top: 6px;
+    }
+
+    .post-meta {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: center;
+    }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <div class="site-title">JINTAO RONG</div>
+    <nav class="site-nav">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#publications">Papers</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="avatar-wrap">
+        <img src="Pictures/20260216-192454.jpg" alt="Portrait of Jintao Rong" class="avatar">
+      </div>
+      <div class="name-cn">戎锦涛</div>
+      <div class="name-en">Jintao Rong</div>
+      <div class="tagline">
+        Ph.D. candidate @ ZJUT · CSC visiting @ UNSW<br>
+        Computer Vision · AIGC · PEFT
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Contact</div>
+        <ul class="sidebar-list">
+          <li>Hangzhou &amp; Sydney</li>
+          <li>1501225407@qq.com</li>
+          <li>jintaorong283@gmail.com</li>
+          <li>
+            <a href="https://scholar.google.com.hk/citations?user=UvouK0YAAAAJ&hl=zh-CN" target="_blank" rel="noopener">
+              Google Scholar
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/euminds" target="_blank" rel="noopener">
+              GitHub (@euminds)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/jintao-rong-a98b621b2/" target="_blank" rel="noopener">
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Research</div>
+        <div class="chip-list">
+          <span class="chip highlight">Computer Vision</span>
+          <span class="chip">AIGC</span>
+          <span class="chip">PEFT</span>
+          <span class="chip">Diffusion Models</span>
+          <span class="chip">Embodied AI</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Affiliations</div>
+        <ul class="sidebar-list">
+          <li>Ph.D. in Control Science &amp; Engineering, ZJUT</li>
+          <li>CSC Visiting Ph.D. Student, CSE @ UNSW</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section id="about">
+        <h2 class="section-title">About</h2>
+        <p>
+          I am a Ph.D. candidate in Control Science and Engineering at the College of Information Engineering,
+          Zhejiang University of Technology (ZJUT), and a CSC visiting Ph.D. student at the School of Computer Science and
+          Engineering, UNSW Sydney.
+        </p>
+        <p>
+          Broadly, I am interested in <strong>computer vision</strong>, <strong>AIGC</strong>,
+          <strong>parameter-efficient fine-tuning (PEFT)</strong>, <strong>diffusion models</strong> and
+          <strong>embodied AI</strong>. Recently, I have been working on retrieval-augmented visual prompt learning,
+          PEFT-based pruning for large language models, motion-controllable video diffusion models, and AI-generated
+          image detection. I am fortunate to be advised by Prof. Linlin Ou and Prof. Xinyi Yu at ZJUT, and to work
+          closely with <a href="https://cshen.github.io/" target="_blank" rel="noopener">Prof. Chunhua Shen</a>,
+          <a href="https://stan-haochen.github.io/" target="_blank" rel="noopener">Prof. Hao Chen</a>, and
+          <a href="https://donggong1.github.io/" target="_blank" rel="noopener">Prof. Dong Gong</a>.
+        </p>
+      </section>
+
+      <section id="news">
+        <h2 class="section-title">News</h2>
+        <ul class="timeline">
+          <li>
+            <strong>2026</strong> – Our paper
+            <em>MIMIC: Mask-Injected Manipulation Video Generation with Interaction Control</em>
+            is accepted to ICLR 2026.
+          </li>
+          <li>
+            <strong>2026</strong> – <em>Retrieval-Enhanced Visual Prompt Learning for Few-shot Classification</em>
+            is accepted by IEEE TCSVT.
+          </li>
+          <li>
+            <strong>2025</strong> – <em>RealHD: A High-Quality Dataset for Robust Detection of State-of-the-Art
+            AI-Generated Images</em> is accepted by ACM MM 2025.
+          </li>
+          <li>
+            <strong>2025</strong> – We propose a training-free motion customization framework for distilled video
+            generators (video diffusion); the work is on arXiv and under review for CVPR 2026.
+            Project page:
+            <a href="https://euminds.github.io/motionecho/" target="_blank" rel="noopener">motionecho</a>.
+          </li>
+        </ul>
+      </section>
+
+      <section id="publications">
+        <h2 class="section-title">Selected Publications</h2>
+        <div class="section-subtitle">
+          A full list is available on
+          <a href="https://scholar.google.com.hk/citations?user=UvouK0YAAAAJ&hl=zh-CN" target="_blank" rel="noopener">
+            Google Scholar
+          </a>.
+        </div>
+        <ul class="pub-list">
+          <li class="pub-item">
+            <div class="pub-title">
+              Retrieval-Enhanced Visual Prompt Learning for Few-shot Classification
+            </div>
+            <div class="pub-authors">
+              <span class="pub-me">J. Rong</span>, H. Chen, X. Yu, L. Ou, et al.
+            </div>
+            <div class="pub-venue">
+              IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2026.
+            </div>
+            <div class="pub-tags">
+              Few-shot learning · Visual prompts
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <div class="pub-title">
+              Across-task Neural Architecture Search via Meta Learning
+            </div>
+            <div class="pub-authors">
+              <span class="pub-me">J. Rong</span>, X. Yu, M. Zhang, et al.
+            </div>
+            <div class="pub-venue">
+              International Journal of Machine Learning and Cybernetics (IJMLC), 2022.
+            </div>
+            <div class="pub-tags">
+              Neural architecture search · Meta learning
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <div class="pub-title">
+              Soft Taylor Pruning for Accelerating Deep Convolutional Neural Networks
+            </div>
+            <div class="pub-authors">
+              <span class="pub-me">J. Rong</span>, X. Yu, M. Zhang, L. Ou
+            </div>
+            <div class="pub-venue">
+              IECON 2020, Annual Conference of the IEEE Industrial Electronics Society.
+            </div>
+            <div class="pub-tags">
+              Model compression · Pruning
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <div class="pub-title">
+              Training-Free Motion Customization for Distilled Video Generators with Adaptive Test-Time Distillation
+            </div>
+            <div class="pub-authors">
+              <span class="pub-me">J. Rong</span>, X. Xie, X. Yu, L. Ou, X. Zhang, C. Shen, D. Gong
+            </div>
+            <div class="pub-venue">
+              arXiv preprint arXiv:2506.19348, 2025. (under review for CVPR 2026)
+            </div>
+            <div class="pub-tags">
+              Video diffusion · Motion control ·
+              <a href="https://euminds.github.io/motionecho/" target="_blank" rel="noopener">project page</a>
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <div class="pub-title">
+              MIMIC: Mask-Injected Manipulation Video Generation with Interaction Control
+            </div>
+            <div class="pub-authors">
+              T. Chen, <span class="pub-me">J. Rong</span>, H. Chen, et al.
+            </div>
+            <div class="pub-venue">
+              International Conference on Learning Representations (ICLR), 2026.
+            </div>
+            <div class="pub-tags">
+              Embodied AI · Manipulation video
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <div class="pub-title">
+              Improving Neural Indoor Surface Reconstruction with Mask-guided Adaptive Consistency Constraints
+            </div>
+            <div class="pub-authors">
+              X. Yu, L. Lu, <span class="pub-me">J. Rong</span>, G. Xu, L. Ou
+            </div>
+            <div class="pub-venue">
+              IEEE International Conference on Robotics and Automation (ICRA), 2024.
+            </div>
+            <div class="pub-tags">
+              Neural surface reconstruction · Indoor scenes
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <div class="pub-title">
+              GSORB-SLAM: Gaussian Splatting SLAM Benefits from ORB Features and Transmittance Information
+            </div>
+            <div class="pub-authors">
+              W. Zheng, X. Yu, <span class="pub-me">J. Rong</span>, L. Ou, Y. Wei, L. Zhou
+            </div>
+            <div class="pub-venue">
+              IEEE Robotics and Automation Letters (RA-L), 2025.
+            </div>
+            <div class="pub-tags">
+              SLAM · Gaussian splatting ·
+              <a href="https://arxiv.org/abs/2410.11356" target="_blank" rel="noopener">arXiv</a> ·
+              <a href="https://github.com/aczheng-cai/GSORB-SLAM" target="_blank" rel="noopener">code</a>
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <div class="pub-title">
+              Learning Layer-wise Composable Textural Inversion Concepts for Text-to-Image Generation
+            </div>
+            <div class="pub-authors">
+              <span class="pub-me">J. Rong</span>, H. Chen, L. Ou, et al.
+            </div>
+            <div class="pub-venue">
+              Visual Informatics, JCR Q1 (under review).
+            </div>
+            <div class="pub-tags">
+              Text-to-image · Diffusion models
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <div class="pub-title">
+              Graph Pruning for Model Compression
+            </div>
+            <div class="pub-authors">
+              M. Zhang, X. Yu, <span class="pub-me">J. Rong</span>, et al.
+            </div>
+            <div class="pub-venue">
+              Applied Intelligence, 2022.
+            </div>
+            <div class="pub-tags">
+              Graph pruning · Compression
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <div class="pub-title">
+              RepNAS: Searching for Efficient Re-parameterizing Blocks
+            </div>
+            <div class="pub-authors">
+              M. Zhang, X. Yu, <span class="pub-me">J. Rong</span>, et al.
+            </div>
+            <div class="pub-venue">
+              IEEE International Conference on Multimedia and Expo (ICME), 2023.
+            </div>
+            <div class="pub-tags">
+              NAS · Re-parameterization
+            </div>
+          </li>
+
+          <li class="pub-item">
+            <div class="pub-title">
+              RealHD: A High-Quality Dataset for Robust Detection of State-of-the-Art AI-Generated Images
+            </div>
+            <div class="pub-authors">
+              H. Yu, Y. Ye, <span class="pub-me">J. Rong</span>, et al.
+            </div>
+            <div class="pub-venue">
+              ACM International Conference on Multimedia (ACM MM), 2025.
+            </div>
+            <div class="pub-tags">
+              Dataset · AI-generated image detection ·
+              <a href="https://github.com/Hanzhe-yu/RealHD" target="_blank" rel="noopener">code</a>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="projects">
+        <h2 class="section-title">Research Projects</h2>
+        <p>
+          I currently work mainly on:
+        </p>
+        <ul>
+          <li>
+            <strong>PEFT &amp; diffusion models (2022 – )</strong> –
+            parameter-efficient tuning and pruning for LLMs and vision models,
+            motion-controllable video diffusion, and generative modelling for embodied scenarios.
+          </li>
+          <li>
+            <strong>NAS &amp; few-shot learning (2020 – 2021)</strong> –
+            across-task NAS and efficient re-parameterization blocks for transferable architectures.
+          </li>
+          <li>
+            <strong>Model compression &amp; pruning (2019 – 2020)</strong> –
+            Soft Taylor pruning, graph-based pruning, and fast CNN deployment.
+          </li>
+        </ul>
+      </section>
+
+      <section id="education">
+        <h2 class="section-title">Education</h2>
+        <ul class="timeline">
+          <li>
+            <strong>Zhejiang University of Technology (ZJUT)</strong>, 2019 – now<br>
+            Ph.D. in Control Science and Engineering, College of Information Engineering.
+          </li>
+          <li>
+            <strong>UNSW Sydney</strong>, 2024 – 2025<br>
+            CSC visiting Ph.D. student, School of Computer Science and Engineering.<br>
+            Supervisor: <a href="https://donggong1.github.io/" target="_blank" rel="noopener">Prof. Dong Gong</a>.
+          </li>
+          <li>
+            <strong>Zhejiang University of Technology (ZJUT)</strong>, 2015 – 2019<br>
+            B.Eng. in Automation, College of Information Engineering.
+          </li>
+        </ul>
+      </section>
+
+      <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <ul class="timeline">
+          <li>
+            <strong>Visiting Student, State Key Laboratory of CAD&amp;CG, Zhejiang University (ZJU)</strong>, Jun 2022 – present<br>
+            Mentors:
+            <a href="https://cshen.github.io/" target="_blank" rel="noopener">Prof. Chunhua Shen</a> and
+            <a href="https://stan-haochen.github.io/" target="_blank" rel="noopener">Prof. Hao Chen</a>.
+          </li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <p>
+          The best way to reach me is by email:
+          <a href="mailto:jintaorong283@gmail.com">jintaorong283@gmail.com</a>.
+          I am happy to chat about research ideas or potential collaborations in CV, AIGC, PEFT,
+          diffusion models, and embodied AI.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 Jintao Rong.
+  </footer>
+</div>
+</body>
+</html>
