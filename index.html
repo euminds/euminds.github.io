@@ -176,6 +176,21 @@
 
     .content {
       font-size: 14px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #about { order: 1; }
+    #news { order: 2; }
+    #education { order: 3; }
+    #experience { order: 4; }
+    #projects { order: 5; }
+    #publications { order: 6; }
+    #awards { order: 7; }
+    #contact { order: 8; }
+
+    .content > section {
+      width: 100%;
     }
 
     section + section {
@@ -216,6 +231,45 @@
 
     .timeline li + li {
       margin-top: 6px;
+    }
+
+    .award-entry + .award-entry {
+      margin-top: 12px;
+    }
+
+    .award-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .award-image {
+      margin: 0;
+      width: min(100%, 210px);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel);
+    }
+
+    .award-image img {
+      display: block;
+      width: 100%;
+      height: 135px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .award-image--letter img {
+      object-position: top;
+    }
+
+    .award-image figcaption {
+      padding: 5px 8px 6px;
+      color: var(--text-light);
+      font-size: 11px;
+      line-height: 1.45;
     }
 
     .pub-list {
@@ -298,8 +352,11 @@
     <nav class="site-nav">
       <a href="#about">About</a>
       <a href="#news">News</a>
-      <a href="#awards">Awards</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
       <a href="#publications">Papers</a>
+      <a href="#awards">Awards</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -416,20 +473,36 @@
       <section id="awards">
         <h2 class="section-title">Awards &amp; Honors</h2>
         <ul class="timeline">
-          <li>
+          <li class="award-entry">
             <strong>2026</strong> – <strong>Gold Reviewer</strong>,
             <a href="https://icml.cc/Conferences/2026" target="_blank" rel="noopener">ICML 2026</a>
             (top 25% of reviewers).
           </li>
-          <li>
+          <li class="award-entry">
             <strong>2023</strong> – China Scholarship Council (CSC) Visiting Ph.D. Scholarship under the
             Program for Constructing High-Level Universities, for joint Ph.D. training at UNSW Sydney, Australia.
+            <div class="award-images">
+              <figure class="award-image award-image--letter">
+                <img src="Pictures/贺信 - 去csc_01.png" alt="CSC scholarship congratulatory letter">
+                <figcaption>CSC scholarship congratulatory letter</figcaption>
+              </figure>
+            </div>
           </li>
-          <li>
+          <li class="award-entry">
             <strong>2020</strong> – National Third Prize and Enterprise Special Award at the
             2nd China Graduate Student Artificial Intelligence Innovation Competition
             (&ldquo;Huawei Cup&rdquo;), with the project
             <em>Across-task Efficient Neural Architecture Search Based on Meta Learning</em>.
+            <div class="award-images">
+              <figure class="award-image">
+                <img src="Pictures/国赛三等奖.jpg" alt="National Third Prize certificate">
+                <figcaption>National Third Prize</figcaption>
+              </figure>
+              <figure class="award-image">
+                <img src="Pictures/华为专项奖.jpg" alt="Huawei Enterprise Special Award certificate">
+                <figcaption>Huawei Enterprise Special Award</figcaption>
+              </figure>
+            </div>
           </li>
         </ul>
       </section>
@@ -471,7 +544,8 @@
               IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2026.
             </div>
             <div class="pub-tags">
-              Few-shot learning · Visual prompts
+              Few-shot learning · Visual prompts ·
+              <a href="https://arxiv.org/abs/2306.02243" target="_blank" rel="noopener">arXiv</a>
             </div>
           </li>
 
@@ -486,7 +560,8 @@
               International Journal of Machine Learning and Cybernetics (IJMLC), 2022.
             </div>
             <div class="pub-tags">
-              Neural architecture search · Meta learning
+              Neural architecture search · Meta learning ·
+              <a href="https://arxiv.org/abs/2110.05842" target="_blank" rel="noopener">arXiv</a>
             </div>
           </li>
 
@@ -532,6 +607,9 @@
             </div>
             <div class="pub-tags">
               Spatial intelligence · Generative models
+              · <a href="https://arxiv.org/abs/2604.20570" target="_blank" rel="noopener">arXiv</a>
+              · <a href="https://aim-uofa.github.io/GSI-Bench/" target="_blank" rel="noopener">project page</a>
+              · <a href="https://github.com/aim-uofa/GSI-Bench" target="_blank" rel="noopener">code</a>
             </div>
           </li>
 
@@ -546,7 +624,8 @@
               International Conference on Learning Representations (ICLR), 2026.
             </div>
             <div class="pub-tags">
-              Embodied AI · Manipulation video
+              Embodied AI · Manipulation video ·
+              <a href="https://openreview.net/forum?id=COrUdVuInH" target="_blank" rel="noopener">OpenReview</a>
             </div>
           </li>
 
@@ -577,6 +656,8 @@
             </div>
             <div class="pub-tags">
               Dataset · AI-generated image detection ·
+              <a href="https://arxiv.org/abs/2602.10546" target="_blank" rel="noopener">arXiv</a> ·
+              <a href="https://hanzhe-yu.github.io/RealHD/" target="_blank" rel="noopener">project page</a> ·
               <a href="https://github.com/Hanzhe-yu/RealHD" target="_blank" rel="noopener">code</a>
             </div>
           </li>
@@ -609,7 +690,8 @@
               IEEE International Conference on Robotics and Automation (ICRA), 2024.
             </div>
             <div class="pub-tags">
-              Neural surface reconstruction · Indoor scenes
+              Neural surface reconstruction · Indoor scenes ·
+              <a href="https://arxiv.org/abs/2309.09739" target="_blank" rel="noopener">arXiv</a>
             </div>
           </li>
 
@@ -624,7 +706,8 @@
               IEEE International Conference on Multimedia and Expo (ICME), 2023.
             </div>
             <div class="pub-tags">
-              NAS · Re-parameterization
+              NAS · Re-parameterization ·
+              <a href="https://arxiv.org/abs/2109.03508" target="_blank" rel="noopener">arXiv</a>
             </div>
           </li>
 
@@ -655,7 +738,8 @@
               Applied Intelligence, 2022.
             </div>
             <div class="pub-tags">
-              Graph pruning · Compression
+              Graph pruning · Compression ·
+              <a href="https://arxiv.org/abs/1911.09817" target="_blank" rel="noopener">arXiv</a>
             </div>
           </li>
         </ul>
@@ -669,8 +753,14 @@
         <ul>
           <li>
             <strong>PEFT &amp; diffusion models (2022 – )</strong> –
-            parameter-efficient tuning and pruning for LLMs and vision models,
+            parameter-efficient tuning for LLMs and vision models,
             motion-controllable video diffusion, and generative modelling for embodied scenarios.
+            · <a href="https://euminds.github.io/motionecho/" target="_blank" rel="noopener">MotionEcho project page</a> ·
+            <a href="https://arxiv.org/abs/2506.19348" target="_blank" rel="noopener">MotionEcho arXiv</a> ·
+            <a href="https://openreview.net/forum?id=COrUdVuInH" target="_blank" rel="noopener">MIMIC OpenReview</a> ·
+            <a href="https://aim-uofa.github.io/GSI-Bench/" target="_blank" rel="noopener">GSI-Bench project page</a> ·
+            <a href="https://arxiv.org/abs/2604.20570" target="_blank" rel="noopener">GSI-Bench arXiv</a> ·
+            <a href="https://doi.org/10.1109/mra.2026.3687283" target="_blank" rel="noopener">PORM paper</a>
           </li>
           <li>
             <strong>LoRAPrune</strong> (ACL 2024 Findings) –
@@ -681,10 +771,13 @@
           <li>
             <strong>NAS &amp; few-shot learning (2020 – 2021)</strong> –
             across-task NAS and efficient re-parameterization blocks for transferable architectures.
+            · <a href="https://arxiv.org/abs/2110.05842" target="_blank" rel="noopener">Across-task NAS arXiv</a> ·
+            <a href="https://arxiv.org/abs/2109.03508" target="_blank" rel="noopener">RepNAS arXiv</a>
           </li>
           <li>
             <strong>Model compression &amp; pruning (2019 – 2020)</strong> –
             Soft Taylor pruning, graph-based pruning, and fast CNN deployment.
+            · <a href="https://arxiv.org/abs/1911.09817" target="_blank" rel="noopener">Graph Pruning arXiv</a>
           </li>
         </ul>
       </section>

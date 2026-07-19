@@ -63,7 +63,33 @@
     }
     ul { padding-left: 18px; }
     li + li { margin-top: 6px; }
-  .pub { margin-bottom: 10px; }
+    .award-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .award-image {
+      width: 180px;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .award-image img {
+      display: block;
+      width: 100%;
+      height: 116px;
+      object-fit: cover;
+    }
+    .award-image--letter img { object-position: top; }
+    .award-image figcaption {
+      padding: 4px 6px 5px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+    .pub { margin-bottom: 10px; }
     .pub-title { font-weight: 600; }
     .pub-meta { color: var(--muted); font-size: 13px; }
     .me { font-weight: 600; }
@@ -116,8 +142,28 @@
   <h2>荣誉与奖励</h2>
   <ul>
     <li><strong>2026</strong> — ICML 2026 <strong>Gold Reviewer</strong>（审稿人前 25%）</li>
-    <li><strong>2023</strong> — 国家留学基金委国家建设高水平大学公派研究生项目资助，赴 UNSW Sydney 联合培养</li>
-    <li><strong>2020</strong> — 「华为杯」第二届中国研究生人工智能创新大赛<strong>国家三等奖</strong>及<strong>企业专项奖</strong>（作品：基于元学习的跨任务高效神经网络结构搜索）</li>
+    <li>
+      <strong>2023</strong> — 国家留学基金委国家建设高水平大学公派研究生项目资助，赴 UNSW Sydney 联合培养
+      <div class="award-images">
+        <figure class="award-image award-image--letter">
+          <img src="Pictures/贺信 - 去csc_01.png" alt="国家留学基金委贺信">
+          <figcaption>国家留学基金委贺信</figcaption>
+        </figure>
+      </div>
+    </li>
+    <li>
+      <strong>2020</strong> — 「华为杯」第二届中国研究生人工智能创新大赛<strong>国家三等奖</strong>及<strong>企业专项奖</strong>（作品：基于元学习的跨任务高效神经网络结构搜索）
+      <div class="award-images">
+        <figure class="award-image">
+          <img src="Pictures/国赛三等奖.jpg" alt="国家三等奖证书">
+          <figcaption>国家三等奖</figcaption>
+        </figure>
+        <figure class="award-image">
+          <img src="Pictures/华为专项奖.jpg" alt="华为企业专项奖证书">
+          <figcaption>华为企业专项奖</figcaption>
+        </figure>
+      </div>
+    </li>
   </ul>
 
   <h2>代表性论文</h2>
@@ -127,17 +173,17 @@
 
   <div class="pub">
     <div class="pub-title">When Distillation Breaks Motion Control: Restoring Generative Trajectories for Fast Video Generators</div>
-    <div class="pub-meta"><span class="me">J. Rong</span>, X. Xie, X. Yu, L. Ou, X. Zhang, C. Shen, D. Gong · ECCV 2026</div>
+    <div class="pub-meta"><span class="me">J. Rong</span>, X. Xie, X. Yu, L. Ou, X. Zhang, C. Shen, D. Gong · ECCV 2026 · <a href="https://arxiv.org/abs/2506.19348" target="_blank" rel="noopener">arXiv</a> · <a href="https://euminds.github.io/motionecho/" target="_blank" rel="noopener">项目主页</a></div>
   </div>
 
   <div class="pub">
     <div class="pub-title">Retrieval-Enhanced Visual Prompt Learning for Few-shot Classification</div>
-    <div class="pub-meta"><span class="me">J. Rong</span>, H. Chen, X. Yu, L. Ou, et al. · IEEE TCSVT, 2026</div>
+    <div class="pub-meta"><span class="me">J. Rong</span>, H. Chen, X. Yu, L. Ou, et al. · IEEE TCSVT, 2026 · <a href="https://arxiv.org/abs/2306.02243" target="_blank" rel="noopener">arXiv</a></div>
   </div>
 
   <div class="pub">
     <div class="pub-title">Across-task Neural Architecture Search via Meta Learning</div>
-    <div class="pub-meta"><span class="me">J. Rong</span>, X. Yu, M. Zhang, et al. · IJMLC, 2022</div>
+    <div class="pub-meta"><span class="me">J. Rong</span>, X. Yu, M. Zhang, et al. · IJMLC, 2022 · <a href="https://arxiv.org/abs/2110.05842" target="_blank" rel="noopener">arXiv</a></div>
   </div>
 
   <div class="pub">
@@ -154,12 +200,12 @@
 
   <div class="pub">
     <div class="pub-title">Exploring Spatial Intelligence from a Generative Perspective</div>
-    <div class="pub-meta">M. Zhu, S. Jiang, H. Zheng, Z. Luo, H. Zhong, A. Li, K. Wang, <span class="me">J. Rong</span>, Y. Liu, H. Chen, T. Lin, C. Shen · CVPR 2026</div>
+    <div class="pub-meta">M. Zhu, S. Jiang, H. Zheng, Z. Luo, H. Zhong, A. Li, K. Wang, <span class="me">J. Rong</span>, Y. Liu, H. Chen, T. Lin, C. Shen · CVPR 2026 · <a href="https://arxiv.org/abs/2604.20570" target="_blank" rel="noopener">arXiv</a> · <a href="https://aim-uofa.github.io/GSI-Bench/" target="_blank" rel="noopener">项目主页</a></div>
   </div>
 
   <div class="pub">
     <div class="pub-title">MIMIC: Mask-Injected Manipulation Video Generation with Interaction Control</div>
-    <div class="pub-meta">T. Chen, <span class="me">J. Rong</span>, H. Chen, et al. · ICLR 2026</div>
+    <div class="pub-meta">T. Chen, <span class="me">J. Rong</span>, H. Chen, et al. · ICLR 2026 · <a href="https://openreview.net/forum?id=COrUdVuInH" target="_blank" rel="noopener">OpenReview</a></div>
   </div>
 
   <div class="pub">
@@ -169,40 +215,52 @@
 
   <div class="pub">
     <div class="pub-title">RealHD: A High-Quality Dataset for Robust Detection of State-of-the-Art AI-Generated Images</div>
-    <div class="pub-meta">H. Yu, Y. Ye, <span class="me">J. Rong</span>, et al. · ACM MM, 2025</div>
+    <div class="pub-meta">H. Yu, Y. Ye, <span class="me">J. Rong</span>, et al. · ACM MM, 2025 · <a href="https://arxiv.org/abs/2602.10546" target="_blank" rel="noopener">arXiv</a> · <a href="https://hanzhe-yu.github.io/RealHD/" target="_blank" rel="noopener">项目主页</a></div>
   </div>
 
   <div class="pub">
     <div class="pub-title">GSORB-SLAM: Gaussian Splatting SLAM Benefits from ORB Features and Transmittance Information</div>
-    <div class="pub-meta">W. Zheng, X. Yu, <span class="me">J. Rong</span>, L. Ou, Y. Wei, L. Zhou · RA-L, 2025</div>
+    <div class="pub-meta">W. Zheng, X. Yu, <span class="me">J. Rong</span>, L. Ou, Y. Wei, L. Zhou · RA-L, 2025 · <a href="https://arxiv.org/abs/2410.11356" target="_blank" rel="noopener">arXiv</a></div>
   </div>
 
   <div class="pub">
     <div class="pub-title">Improving Neural Indoor Surface Reconstruction with Mask-guided Adaptive Consistency Constraints</div>
-    <div class="pub-meta">X. Yu, L. Lu, <span class="me">J. Rong</span>, G. Xu, L. Ou · ICRA 2024</div>
+    <div class="pub-meta">X. Yu, L. Lu, <span class="me">J. Rong</span>, G. Xu, L. Ou · ICRA 2024 · <a href="https://arxiv.org/abs/2309.09739" target="_blank" rel="noopener">arXiv</a></div>
   </div>
 
   <div class="pub">
     <div class="pub-title">RepNAS: Searching for Efficient Re-parameterizing Blocks</div>
-    <div class="pub-meta">M. Zhang, X. Yu, <span class="me">J. Rong</span>, et al. · ICME 2023</div>
+    <div class="pub-meta">M. Zhang, X. Yu, <span class="me">J. Rong</span>, et al. · ICME 2023 · <a href="https://arxiv.org/abs/2109.03508" target="_blank" rel="noopener">arXiv</a></div>
   </div>
 
   <div class="pub">
     <div class="pub-title">Efficient Re-parameterization Operations Search for Easy-to-Deploy Network Based on Directional Evolutionary Strategy</div>
-    <div class="pub-meta">X. Yu, X. Wang, <span class="me">J. Rong</span>, M. Zhang, L. Ou · Neural Processing Letters, 2023</div>
+    <div class="pub-meta">X. Yu, X. Wang, <span class="me">J. Rong</span>, M. Zhang, L. Ou · Neural Processing Letters, 2023 · <a href="https://arxiv.org/abs/2204.06403" target="_blank" rel="noopener">arXiv</a></div>
   </div>
 
   <div class="pub">
     <div class="pub-title">Graph Pruning for Model Compression</div>
-    <div class="pub-meta">M. Zhang, X. Yu, <span class="me">J. Rong</span>, et al. · Applied Intelligence, 2022</div>
+    <div class="pub-meta">M. Zhang, X. Yu, <span class="me">J. Rong</span>, et al. · Applied Intelligence, 2022 · <a href="https://arxiv.org/abs/1911.09817" target="_blank" rel="noopener">arXiv</a></div>
   </div>
 
   <h2>科研项目与深度合作</h2>
   <ul>
-    <li><strong>PEFT 与扩散模型（2022–）</strong>：大语言模型与视觉模型的参数高效微调与剪枝、运动可控视频扩散、具身场景生成建模</li>
-    <li><strong>LoRAPrune</strong>（ACL 2024 Findings）：参与大语言模型结构化剪枝与 LoRA 结合研究</li>
-    <li><strong>神经网络结构搜索与小样本学习（2020–2021）</strong>：跨任务 NAS、高效重参数化结构搜索</li>
-    <li><strong>模型压缩与剪枝（2019–2020）</strong>：Soft Taylor 剪枝、图剪枝、CNN 快速部署</li>
+    <li>
+      <strong>PEFT 与扩散模型（2022–）</strong>：大语言模型与视觉模型的参数高效微调、运动可控视频扩散、具身场景生成建模<br>
+      <span class="pub-meta">相关链接：<a href="https://euminds.github.io/motionecho/" target="_blank" rel="noopener">MotionEcho 项目主页</a> · <a href="https://arxiv.org/abs/2506.19348" target="_blank" rel="noopener">MotionEcho arXiv</a> · <a href="https://openreview.net/forum?id=COrUdVuInH" target="_blank" rel="noopener">MIMIC OpenReview</a> · <a href="https://aim-uofa.github.io/GSI-Bench/" target="_blank" rel="noopener">GSI-Bench 项目主页</a> · <a href="https://arxiv.org/abs/2604.20570" target="_blank" rel="noopener">GSI-Bench arXiv</a> · <a href="https://doi.org/10.1109/mra.2026.3687283" target="_blank" rel="noopener">PORM 论文</a></span>
+    </li>
+    <li>
+      <strong>LoRAPrune</strong>（ACL 2024 Findings）：参与大语言模型结构化剪枝与 LoRA 结合研究<br>
+      <span class="pub-meta">相关链接：<a href="https://aclanthology.org/2024.findings-acl.178/" target="_blank" rel="noopener">论文</a> · <a href="https://github.com/aim-uofa/LoRAPrune" target="_blank" rel="noopener">代码</a></span>
+    </li>
+    <li>
+      <strong>神经网络结构搜索与小样本学习（2020–2021）</strong>：跨任务 NAS、高效重参数化结构搜索<br>
+      <span class="pub-meta">相关链接：<a href="https://arxiv.org/abs/2110.05842" target="_blank" rel="noopener">Across-task NAS arXiv</a> · <a href="https://arxiv.org/abs/2109.03508" target="_blank" rel="noopener">RepNAS arXiv</a></span>
+    </li>
+    <li>
+      <strong>模型压缩与剪枝（2019–2020）</strong>：Soft Taylor 剪枝、图剪枝、CNN 快速部署<br>
+      <span class="pub-meta">相关链接：<a href="https://arxiv.org/abs/1911.09817" target="_blank" rel="noopener">Graph Pruning arXiv</a></span>
+    </li>
   </ul>
 </div>
 </body>
