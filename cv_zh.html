@@ -46,9 +46,9 @@
     <div class="pipeline-copy">
       <div class="pipeline-title">语义三维重建与任务规划</div>
       <ul>
-        <li><strong>感知与建图：</strong>融合多视角 RGB-D 与开放词汇二维视觉特征，将语义蒸馏至 NeRF / 3D Gaussian 表示，构建兼具几何与语义的三维场景。</li>
-        <li><strong>规划与执行：</strong>利用大语言模型分解用户目标，将目标位置、语言空间关系和障碍物转为三维代价地图，优化无碰撞六自由度轨迹。</li>
-        <li><strong>动态更新：</strong>跟踪场景物体并更新三维表示与规划结果，形成“感知—规划—执行—反馈”的闭环 pipeline。</li>
+        <li><strong>静态感知：</strong>基于多视角 RGB 与相机位姿，将 MaskCLIP 二维语义特征蒸馏至 NeRF，提取语义点云用于目标定位与场景避障。</li>
+        <li><strong>任务与轨迹规划：</strong>以模块化语言模型程序分解任务，融合目标、语言空间约束与避障代价地图，通过改进 A* 规划末端运动路径并生成抓取位姿。</li>
+        <li><strong>动态扩展：</strong>结合 RGB-D、二维点跟踪与刚体变换更新语义 3DGS；通过全参数微调生成阶段任务，并以贪心规划更新运动路径。</li>
       </ul>
     </div>
   </div>
@@ -61,8 +61,8 @@
       <div class="pipeline-title">多模态任务导向机器人操作</div>
       <ul>
         <li><strong>任务规划：</strong>使用 VLM 识别对象及空间关系，由 LLM 生成 PDDL 问题描述，再通过符号规划器得到逻辑一致的动作序列。</li>
-        <li><strong>几何约束：</strong>在对象局部坐标系中提取任务关键点与功能轴，将抓取位置、操作方向等语义转为显式约束，完成轨迹优化与闭环执行。</li>
-        <li><strong>任务导向抓取：</strong>结合可供性推理筛选 GraspNet 候选，使抓取姿态服务于后续操作；相关成果已被 IEEE Robotics &amp; Automation Magazine（RAM）录用。</li>
+        <li><strong>约束操作：</strong>结合物体网格、多视角 VLM 推理与 6D 位姿估计获取对象关键点和功能轴，完成约束轨迹优化与位姿反馈闭环；该层级规划成果已被 IEEE RAM 录用。</li>
+        <li><strong>可供性抓取扩展：</strong>面向未知物体预测任务相关可供性区域，结合区域匹配程度与抓取质量评分筛选 GraspNet 候选，生成服务于后续操作的抓取姿态。</li>
       </ul>
     </div>
   </div>
